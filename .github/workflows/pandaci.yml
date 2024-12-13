@@ -17,4 +17,15 @@ jobs:
       - name: what is go version
         run: 
           go version
-        
+      - name: Check out private repo remotely
+        uses: actions/checkout@v4
+        with:
+          repository: f-lsq/panda-hidden-repo
+          path: folder
+          token: ${{ secrets.FIONA_TOKEN }}
+      - name: List out hidden things
+        run: |
+          ls
+          cd folder
+          ls
+          cat *
